@@ -1,0 +1,43 @@
+---
+- package:
+    name: lightdm,lightdm-gtk-greeter,xsel,xclip
+  become: yes
+
+- systemd:
+    name: lightdm
+    enabled: yes
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+
+- copy:
+    src: x-init-kb.sh
+    dest: /usr/local/bin/
+    mode: preserve
+  become: yes
+
+- lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    regexp: '^#display-setup-script='
+    line: 'display-setup-script=/usr/local/bin/x-init-kb.sh'
+  become: yes
+
+- name: build dmenu2 from source
+  block:
+  - hg:
+      repo: https://bitbucket.org/melek/dmenu2
+      dest: '~/repos/dmenu2'
+  - make:
+      chdir: "/home/{{ ansible_user_id }}/repos/dmenu2"
+      target: "{{ item }}"
+    with_items:
+      - clean
+      - install
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- package: name=xf86-video-vmware
+  become: true
+  when: ansible_distribution == 'Archlinux'
+
+- aur: name=dmenu2
+  when: ansible_distribution == 'Archlinux'
