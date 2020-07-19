@@ -2,6 +2,7 @@
 - hosts: localhost
 
   roles:
+    - galaxy
     - update_package_cache
     - sudo
     - colemak

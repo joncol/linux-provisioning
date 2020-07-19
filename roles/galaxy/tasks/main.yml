@@ -1,0 +1,4 @@
+---
+- name: install ansible-galaxy dependencies
+  local_action: command ansible-galaxy install -r requirements.yml
+  changed_when: False
