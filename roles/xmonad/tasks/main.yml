@@ -1,0 +1,20 @@
+---
+- package:
+    name: xmonad,xmobar
+  become: yes
+
+- package:
+    name: libghc-xmonad-contrib-dev,libghc-xmonad-dev
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- package: {name: xmonad-contrib}
+  when: ansible_distribution == 'Archlinux'
+  become: yes
+
+- copy:
+    src: "{{item}}"
+    dest: '~/.xmonad/'
+  with_items:
+    - xmonad.hs
+    - xmobar.hs
