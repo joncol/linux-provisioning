@@ -1,0 +1,41 @@
+---
+- package:
+    name: binutils,fakeroot,hub,mercurial
+
+- shell: timedatectl set-timezone Europe/Stockholm
+
+- name: locale setup
+  block:
+    - lineinfile:
+        path: /etc/locale.gen
+        regexp: '#en_US.UTF-8 UTF-8'
+        line: 'en_US.UTF-8 UTF-8'
+    - shell: locale-gen
+  when: ansible_distribution == 'Archlinux'
+
+- apt: {name: build-essential}
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- pacman: {name: base-devel}
+  when: ansible_distribution == 'Archlinux'
+
+- name: install man pages
+  block:
+    - pacman: {name: man-db}
+    - pacman: {name: man-pages}
+  when: ansible_distribution == 'Archlinux'
+
+- block:
+    - pacman: {name: pkgfile}
+    - command: {cmd: pkgfile --update}
+  when: ansible_distribution == 'Archlinux'
+
+- pacman: {name: wget}
+  when: ansible_distribution == 'Archlinux'
+
+- package: {name: direnv}
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- aur: {name: direnv}
+  become: no
+  when: ansible_distribution == 'Archlinux'

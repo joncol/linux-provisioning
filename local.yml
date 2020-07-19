@@ -6,13 +6,5 @@
     - update_package_cache
     - sudo
     - colemak
+    - basic_setup
     - zsh
-
-  # tasks:
-  #   - import_role:
-  #       name: sudo
-  #   - name: test sudo ping
-  #     block:
-  #       - debug: msg="Testing sudo ping"
-  #       - ping:
-  #     become: yes
