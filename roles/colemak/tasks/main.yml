@@ -1,0 +1,17 @@
+- name: install colemak keymap
+  copy:
+    src: "{{ item }}"
+    dest: "{{ maps_dir }}"
+  with_fileglob: "{{ role_path }}/files/maps/*"
+  become: yes
+
+- copy:
+    src: keyboard
+    dest: /etc/default/
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: set active keymap
+  command:
+    cmd: loadkeys {{ maps_dir }}/colemak.map
+  become: yes

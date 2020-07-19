@@ -7,14 +7,15 @@
     become: True
     become_method: su
 
-  # roles:
-  #   - sudo
+  roles:
+    - sudo
+    - colemak
 
-  tasks:
-    - import_role:
-        name: sudo
-    - name: test sudo ping
-      block:
-        - debug: msg="Testing sudo ping"
-        - ping:
-      become: yes
+  # tasks:
+  #   - import_role:
+  #       name: sudo
+  #   - name: test sudo ping
+  #     block:
+  #       - debug: msg="Testing sudo ping"
+  #       - ping:
+  #     become: yes
