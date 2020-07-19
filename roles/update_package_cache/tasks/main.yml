@@ -1,0 +1,4 @@
+---
+- include: tasks.yml
+  become: yes
+  become_method: su
