@@ -1,0 +1,4 @@
+---
+- name: install yay (AUR helper)
+  aur: name=yay
+  when: ansible_distribution == 'Archlinux'
