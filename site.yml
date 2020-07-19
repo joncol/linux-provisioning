@@ -5,6 +5,7 @@
     - update_package_cache
     - sudo
     - colemak
+    - zsh
 
   # tasks:
   #   - import_role:

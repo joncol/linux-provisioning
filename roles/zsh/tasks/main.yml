@@ -1,0 +1,29 @@
+- name: install zshell
+  package:
+    name: zsh,fzf
+  become: yes
+
+- name: change default shell of current user
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+  become: yes
+
+- copy:
+    src: "{{ item }}"
+    dest: "~"
+  with_items:
+    - .antigenrc
+    - .p10k.zsh
+    - .zshenv
+
+- copy:
+    src: .zshrc
+    dest: "~/.config/zsh/"
+
+- package: {name: zsh-antigen}
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- aur: {name: antigen}
+  when: ansible_distribution == 'Archlinux'
