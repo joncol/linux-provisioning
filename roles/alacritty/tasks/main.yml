@@ -1,0 +1,4 @@
+---
+- package: name=alacritty
+  become: yes
+  when: ansible_distribution == 'Archlinux'
