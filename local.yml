@@ -9,6 +9,7 @@
     - basic_setup
     - yay
     - zsh
+    - tmux
     - x
     - xmonad
     - fonts
