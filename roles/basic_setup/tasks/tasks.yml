@@ -21,21 +21,19 @@
 - apt: {name: build-essential}
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- pacman: {name: base-devel}
+- name: install Arch Linux specific packages
+  package:
+    name:
+      - base-devel
+      - man-db
+      - man-pages
+      - wget
   when: ansible_distribution == 'Archlinux'
 
-- name: install man pages
+- name: install pkgfile
   block:
-    - pacman: {name: man-db}
-    - pacman: {name: man-pages}
-  when: ansible_distribution == 'Archlinux'
-
-- block:
     - pacman: {name: pkgfile}
     - command: {cmd: pkgfile --update}
-  when: ansible_distribution == 'Archlinux'
-
-- pacman: {name: wget}
   when: ansible_distribution == 'Archlinux'
 
 - package: {name: direnv}
