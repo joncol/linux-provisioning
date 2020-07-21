@@ -9,18 +9,6 @@
     shell: /usr/bin/zsh
   become: yes
 
-- copy:
-    src: "{{ item }}"
-    dest: "~"
-  loop:
-    - .antigenrc
-    - .p10k.zsh
-    - .zshenv
-
-- copy:
-    src: .zshrc
-    dest: "~/.config/zsh/"
-
 - package: {name: zsh-antigen}
   become: yes
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

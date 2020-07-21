@@ -1,0 +1,13 @@
+---
+- name: get dotfiles and stow them
+  block:
+    - git:
+        repo: https://github.com/joncol/dotfiles.git
+        dest: ~/dotfiles
+        force: yes
+
+    - command:
+        chdir: ~/dotfiles
+        cmd: stow -t ~ homedir
+
+  tags: [dotfiles, stow]
