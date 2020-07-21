@@ -29,7 +29,7 @@
   - make:
       chdir: "/home/{{ ansible_user_id }}/repos/dmenu2"
       target: "{{ item }}"
-    with_items:
+    loop:
       - clean
       - install
   become: yes

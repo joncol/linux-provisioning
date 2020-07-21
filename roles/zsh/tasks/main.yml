@@ -12,7 +12,7 @@
 - copy:
     src: "{{ item }}"
     dest: "~"
-  with_items:
+  loop:
     - .antigenrc
     - .p10k.zsh
     - .zshenv

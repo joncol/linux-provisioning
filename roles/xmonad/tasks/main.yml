@@ -15,6 +15,6 @@
 - copy:
     src: "{{item}}"
     dest: '~/.xmonad/'
-  with_items:
+  loop:
     - xmonad.hs
     - xmobar.hs
