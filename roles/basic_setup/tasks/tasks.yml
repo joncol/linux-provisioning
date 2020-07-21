@@ -27,6 +27,7 @@
       - base-devel
       - man-db
       - man-pages
+      - openssh
       - wget
   when: ansible_distribution == 'Archlinux'
 
@@ -41,4 +42,11 @@
 
 - aur: {name: direnv}
   become: no
+  when: ansible_distribution == 'Archlinux'
+
+- systemd:
+    name: sshd.service
+    enabled: yes
+    state: started
+
   when: ansible_distribution == 'Archlinux'
