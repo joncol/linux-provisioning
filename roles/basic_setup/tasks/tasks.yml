@@ -1,6 +1,11 @@
 ---
 - package:
-    name: binutils,fakeroot,hub,mercurial
+    name:
+      - binutils
+      - fakeroot
+      - hub
+      - mercurial
+      - stow
 
 - shell: timedatectl set-timezone Europe/Stockholm
 
