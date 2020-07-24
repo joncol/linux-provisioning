@@ -4,6 +4,10 @@
         name: lightdm,lightdm-gtk-greeter,xsel,xclip
       become: yes
 
+    - package: name=libx11-dev
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      become: yes
+
     - systemd:
         name: lightdm
         enabled: yes
@@ -23,15 +27,21 @@
 
     - name: build dmenu2 from source
       block:
+        - file:
+            path: ~/repos/dmenu2
+            state: directory
+
         - hg:
             repo: https://bitbucket.org/melek/dmenu2
-            dest: '~/repos/dmenu2'
+            dest: ~/repos/dmenu2
+
         - make:
-            chdir: "/home/{{ ansible_user_id }}/repos/dmenu2"
+            chdir: ~/repos/dmenu2
             target: "{{ item }}"
           loop:
             - clean
             - install
+
       become: yes
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
