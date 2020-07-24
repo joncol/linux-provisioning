@@ -12,13 +12,14 @@ provision tags='':
     username=${username//\"/}
 
     if [ -z {{tags}} ]; then
-        ansible-playbook -i hosts.yml -u $username -K local.yml
+        ansible-playbook -i hosts.yml -u $username -K site.yml -e provision_hosts=all
     else
-        ansible-playbook -i hosts.yml -u $username -K local.yml -t {{tags}}
+        ansible-playbook -i hosts.yml -u $username -K site.yml -e provision_hosts=all \
+            -t {{tags}}
     fi
 
 list-tags:
-    ansible-playbook --list-tags local.yml
+    ansible-playbook --list-tags site.yml
 
 # copy the SSH key, and create an ansible inventory (hosts.yml)
 setup-box username ip port='22':

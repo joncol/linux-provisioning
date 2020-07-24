@@ -1,0 +1,17 @@
+---
+- hosts: "{{provision_hosts | default('localhost')}}"
+
+  roles:
+    - galaxy
+    - update_package_cache
+    - sudo
+    - colemak
+    - basic_setup
+    - yay
+    - dotfiles
+    - zsh
+    - tmux
+    - x
+    - xmonad
+    - fonts
+    - alacritty

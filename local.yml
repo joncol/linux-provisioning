@@ -1,17 +1,1 @@
----
-- hosts: all
-
-  roles:
-    - galaxy
-    - update_package_cache
-    - sudo
-    - colemak
-    - basic_setup
-    - yay
-    - dotfiles
-    - zsh
-    - tmux
-    - x
-    - xmonad
-    - fonts
-    - alacritty
+site.yml
