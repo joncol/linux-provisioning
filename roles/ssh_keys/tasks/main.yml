@@ -1,0 +1,13 @@
+---
+- copy:
+    src: ~/.ssh/{{ item.name }}
+    dest: ~/.ssh/
+    mode: "{{ item.mode }}"
+  with_items:
+    - {name: id_rsa.pub, mode: 644}
+    - {name: id_rsa, mode: 600}
+
+- name: reset SSH connection to allow user changes to take effect
+  meta: reset_connection
+
+- meta: flush_handlers

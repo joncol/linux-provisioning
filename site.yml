@@ -5,6 +5,7 @@
     - galaxy
     - update_package_cache
     - sudo
+    - ssh_keys
     - colemak
     - basic_setup
     - yay
