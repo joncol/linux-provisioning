@@ -13,11 +13,4 @@
       when: ansible_distribution == 'Archlinux'
       become: yes
 
-    - copy:
-        src: "{{item}}"
-        dest: '~/.xmonad/'
-      loop:
-        - xmonad.hs
-        - xmobar.hs
-
   tags: x
