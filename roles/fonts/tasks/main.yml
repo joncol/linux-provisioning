@@ -1,16 +1,19 @@
 ---
-- package:
-    name:
-      - ttf-fira-code
-  become: yes
-  when: ansible_distribution == 'Archlinux'
+- block:
+    - package:
+        name:
+          - ttf-fira-code
+      become: yes
+      when: ansible_distribution == 'Archlinux'
 
-- aur:
-    name:
-      - montserrat-font-ttf
-      - ttf-iosevka
-  when: ansible_distribution == 'Archlinux'
+    - aur:
+        name:
+          - montserrat-font-ttf
+          - ttf-iosevka
+      when: ansible_distribution == 'Archlinux'
 
-- package: {name: fonts-firacode}
-  become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - package: {name: fonts-firacode}
+      become: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  tags: x

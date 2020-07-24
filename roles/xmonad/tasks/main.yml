@@ -1,20 +1,23 @@
 ---
-- package:
-    name: xmonad,xmobar
-  become: yes
+- block:
+    - package:
+        name: xmonad,xmobar
+      become: yes
 
-- package:
-    name: libghc-xmonad-contrib-dev,libghc-xmonad-dev
-  become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - package:
+        name: libghc-xmonad-contrib-dev,libghc-xmonad-dev
+      become: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- package: {name: xmonad-contrib}
-  when: ansible_distribution == 'Archlinux'
-  become: yes
+    - package: {name: xmonad-contrib}
+      when: ansible_distribution == 'Archlinux'
+      become: yes
 
-- copy:
-    src: "{{item}}"
-    dest: '~/.xmonad/'
-  loop:
-    - xmonad.hs
-    - xmobar.hs
+    - copy:
+        src: "{{item}}"
+        dest: '~/.xmonad/'
+      loop:
+        - xmonad.hs
+        - xmobar.hs
+
+  tags: x

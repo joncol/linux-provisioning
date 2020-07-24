@@ -10,4 +10,4 @@
         chdir: ~/dotfiles
         cmd: stow -t ~ homedir
 
-  tags: [dotfiles, stow]
+  tags: [dotfiles]
