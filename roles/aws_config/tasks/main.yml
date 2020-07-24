@@ -1,0 +1,5 @@
+---
+- copy:
+    src: credentials
+    dest: ~/.aws/
+    mode: 0600

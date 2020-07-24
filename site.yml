@@ -11,6 +11,7 @@
     - yay
     - git_config
     - dotfiles
+    - aws_config
     - neovim
     - zsh
     - tmux
