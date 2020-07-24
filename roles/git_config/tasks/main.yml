@@ -1,0 +1,5 @@
+---
+- copy:
+    src: dot_gitconfig
+    dest: ~/.gitconfig
+    mode: 0600

@@ -8,6 +8,7 @@
     - colemak
     - basic_setup
     - yay
+    - git_config
     - dotfiles
     - neovim
     - zsh
