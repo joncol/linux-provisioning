@@ -1,0 +1,8 @@
+---
+- file:
+    path: ~/.asdf
+    state: directory
+
+- git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: ~/.asdf

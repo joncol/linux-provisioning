@@ -15,6 +15,7 @@
     - neovim
     - zsh
     - tmux
+    - asdf
     - x
     - xmonad
     - emacs
