@@ -9,6 +9,7 @@
     - basic_setup
     - yay
     - dotfiles
+    - neovim
     - zsh
     - tmux
     - x
