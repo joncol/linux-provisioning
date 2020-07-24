@@ -1,15 +1,24 @@
 ---
 - package:
     name:
+      - autoconf
       - binutils
+      - curl
       - fakeroot
+      - git
+      - htop
       - hub
       - mercurial
+      - ncdu
+      - python-pip
+      - ripgrep
       - stow
+      - texinfo
+      - tree
 
 - shell: timedatectl set-timezone Europe/Stockholm
 
-- name: locale setup
+- name: enable locale
   block:
     - lineinfile:
         path: /etc/locale.gen
@@ -18,31 +27,38 @@
     - shell: locale-gen
   when: ansible_distribution == 'Archlinux'
 
-- apt: {name: build-essential}
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- name: Arch Linux specific packages and setup
+  block:
+    - package:
+        name:
+          - base-devel
+          - bat
+          - man-db
+          - man-pages
+          - fd
+          - openssh
+          - pkgfile
+          - wget
 
-- name: install Arch Linux specific packages
+    - aur:
+        name:
+          - direnv
+          - the_silver_searcher
+      become: no
+
+    - name: update pkgfile database
+      command: pkgfile --update
+
+  when: ansible_distribution == 'Archlinux'
+
+- name: Debian/Ubuntu specific packages and setup
   package:
     name:
-      - base-devel
-      - man-db
-      - man-pages
-      - openssh
-      - wget
-  when: ansible_distribution == 'Archlinux'
-
-- name: install pkgfile
-  block:
-    - pacman: {name: pkgfile}
-    - command: {cmd: pkgfile --update}
-  when: ansible_distribution == 'Archlinux'
-
-- package: {name: direnv}
+      - build-essential
+      - direnv
+      - fd-find
+      - silversearcher-ag
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- aur: {name: direnv}
-  become: no
-  when: ansible_distribution == 'Archlinux'
 
 - systemd:
     name: sshd.service
