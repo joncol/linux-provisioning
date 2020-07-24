@@ -1,0 +1,4 @@
+---
+- aur: name=slack-desktop
+  tags: [x, x_apps]
+  when: ansible_distribution == 'Archlinux'
