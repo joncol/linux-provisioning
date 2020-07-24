@@ -1,10 +1,19 @@
 ---
 - block:
     - package:
-        name: lightdm,lightdm-gtk-greeter,xsel,xclip
+        name: lightdm,lightdm-gtk-greeter,xsel,xclip,xterm,feh
       become: yes
 
-    - package: name=libx11-dev
+    - package: name=xorg-xrdb
+      when: ansible_distribution == 'Archlinux'
+      become: yes
+
+    - package:
+        name:
+          - libx11-dev
+          - libxinerama-dev
+          - libxft-dev
+          - x11-xserver-utils
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       become: yes
 
