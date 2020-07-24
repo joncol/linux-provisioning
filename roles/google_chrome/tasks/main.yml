@@ -1,0 +1,10 @@
+---
+- aur: name=google-chrome
+  tags: [x, x_apps]
+  when: ansible_distribution == 'Archlinux'
+
+- apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  become: yes
+  tags: [x, x_apps]
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
