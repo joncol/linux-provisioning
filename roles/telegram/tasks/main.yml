@@ -1,0 +1,4 @@
+---
+- package: name=telegram-desktop
+  become: true
+  tags: [x, x_apps]
