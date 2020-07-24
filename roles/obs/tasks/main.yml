@@ -1,0 +1,4 @@
+---
+- package: name=obs-studio
+  become: yes
+  tags: [x, x_apps]
