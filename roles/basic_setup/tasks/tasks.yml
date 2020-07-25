@@ -38,12 +38,10 @@
           - fd
           - openssh
           - pkgfile
+          - the_silver_searcher
           - wget
 
-    - aur:
-        name:
-          - direnv
-          - the_silver_searcher
+    - aur: name=direnv
       become: no
 
     - name: update pkgfile database
