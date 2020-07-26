@@ -6,6 +6,10 @@
         dest: ~/dotfiles
         force: yes
 
+    - file:
+        path: ~/.config
+        state: directory
+
     - command:
         chdir: ~/dotfiles
         cmd: stow -t ~ homedir
