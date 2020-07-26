@@ -19,6 +19,10 @@
         state: directory
 
     - file:
+        path: ~/.config/tmux
+        state: directory
+
+    - file:
         path: ~/.xmonad
         state: directory
 
