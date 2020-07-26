@@ -2,7 +2,6 @@
 - package:
     name:
       - autoconf
-      - aws
       - binutils
       - curl
       - fakeroot
@@ -35,6 +34,7 @@
   block:
     - package:
         name:
+          - aws-cli
           - base-devel
           - bat
           - man-db
@@ -67,6 +67,9 @@
 
     - apt:
         deb: https://github.com/dandavison/delta/releases/download/0.3.0/git-delta_0.3.0_amd64.deb
+
+    - pip: name=awscli
+      become: no
 
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
