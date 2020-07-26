@@ -7,7 +7,19 @@
         force: yes
 
     - file:
+        path: ~/.aws
+        state: directory
+
+    - file:
         path: ~/.config
+        state: directory
+
+    - file:
+        path: ~/.config/Slack
+        state: directory
+
+    - file:
+        path: ~/.xmonad
         state: directory
 
     - command:
