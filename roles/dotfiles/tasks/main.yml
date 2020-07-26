@@ -2,7 +2,7 @@
 - name: get dotfiles and stow them
   block:
     - git:
-        repo: https://github.com/joncol/dotfiles.git
+        repo: git@github.com:joncol/dotfiles.git
         dest: ~/dotfiles
 
     - file:
