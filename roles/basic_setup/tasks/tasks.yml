@@ -37,6 +37,7 @@
           - aws-cli
           - base-devel
           - bat
+          - inetutils
           - man-db
           - man-pages
           - fd
@@ -63,6 +64,7 @@
           - build-essential
           - direnv
           - fd-find
+          - hostname
           - silversearcher-ag
 
     - apt:
