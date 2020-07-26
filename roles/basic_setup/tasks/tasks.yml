@@ -2,12 +2,14 @@
 - package:
     name:
       - autoconf
+      - aws
       - binutils
       - curl
       - fakeroot
       - git
       - htop
       - hub
+      - lastpass-cli
       - mercurial
       - ncdu
       - python-pip
@@ -16,6 +18,7 @@
       - texinfo
       - tig
       - tree
+      - unzip
 
 - shell: timedatectl set-timezone Europe/Stockholm
 
@@ -42,7 +45,10 @@
           - the_silver_searcher
           - wget
 
-    - aur: name=direnv
+    - aur:
+        name:
+          - direnv
+          - git-delta
       become: no
 
     - name: update pkgfile database
@@ -51,12 +57,17 @@
   when: ansible_distribution == 'Archlinux'
 
 - name: Debian/Ubuntu specific packages and setup
-  package:
-    name:
-      - build-essential
-      - direnv
-      - fd-find
-      - silversearcher-ag
+  block:
+    - package:
+        name:
+          - build-essential
+          - direnv
+          - fd-find
+          - silversearcher-ag
+
+    - apt:
+        deb: https://github.com/dandavison/delta/releases/download/0.3.0/git-delta_0.3.0_amd64.deb
+
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - systemd:
