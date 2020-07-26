@@ -8,7 +8,7 @@ alias show-secret := view-secret
 
 provision tags='':
     #!/usr/bin/env bash
-    username=$(yq '.all.vars.username' hosts.yml)
+    username=$(grep username hosts.yml | tr -d ' ' | cut -d ':' -f2)
     username=${username//\"/}
 
     if [ -z {{tags}} ]; then
@@ -41,7 +41,7 @@ setup-box username ip port='22':
 # for debugging
 remove-user-from-wheel-group:
     #!/usr/bin/env bash
-    username=$(yq '.all.vars.username' hosts.yml)
+    username=$(grep username hosts.yml | tr -d ' ' | cut -d ':' -f2)
     username=${username//\"/}
 
     ansible -i hosts.yml -u $username the_machine -K \
