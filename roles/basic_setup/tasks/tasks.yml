@@ -45,7 +45,7 @@
           - fd
           - openssh
           - pkgfile
-          - postgresql-lib
+          - postgresql-libs
           - the_silver_searcher
           - wget
 
