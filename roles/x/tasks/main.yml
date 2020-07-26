@@ -1,18 +1,34 @@
 ---
 - block:
     - package:
-        name: lightdm,lightdm-gtk-greeter,xsel,xclip,xterm,feh
+        name:
+          - feh
+          - lightdm
+          - lightdm-gtk-greeter
+          - redshift
+          - unclutter
+          - xclip
+          - xsel
+          - xterm
       become: yes
 
-    - package: name=xorg-xrdb
+    - package:
+        name:
+          - xf86-input-wacom
+          - xorg-server
+          - xorg-xdpyinfo
+          - xorg-xinput
+          - xorg-xrdb
       when: ansible_distribution == 'Archlinux'
       become: yes
 
     - package:
         name:
+          - libwacom-bin
           - libx11-dev
           - libxinerama-dev
           - libxft-dev
+          - picom
           - x11-xserver-utils
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       become: yes
@@ -54,7 +70,10 @@
       become: yes
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - aur: name=dmenu2
+    - aur:
+        name:
+          - dmenu2
+          - picom-tryone-git
       when: ansible_distribution == 'Archlinux'
 
   tags: x
