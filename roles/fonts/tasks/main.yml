@@ -3,6 +3,7 @@
     - package:
         name:
           - ttf-fira-code
+          - ttf-liberation
       become: yes
       when: ansible_distribution == 'Archlinux'
 
@@ -10,10 +11,12 @@
         name:
           - montserrat-font-ttf
           - ttf-iosevka
+          - ttf-ms-fonts
+          - ttf-vista-fonts
       when: ansible_distribution == 'Archlinux'
 
     - package: {name: fonts-firacode}
       become: yes
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-  tags: x
+  tags: [x, fonts]
