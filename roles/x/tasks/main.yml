@@ -14,6 +14,7 @@
 
     - package:
         name:
+          - slock
           - xf86-input-wacom
           - xorg-server
           - xorg-xdpyinfo
@@ -29,6 +30,7 @@
           - libxinerama-dev
           - libxft-dev
           - picom
+          - suckless-tools
           - x11-xserver-utils
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       become: yes
