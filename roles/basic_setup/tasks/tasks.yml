@@ -20,6 +20,7 @@
       - tig
       - tree
       - unzip
+      - zip
 
 - shell: timedatectl set-timezone Europe/Stockholm
 
