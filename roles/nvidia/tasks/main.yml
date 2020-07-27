@@ -1,0 +1,10 @@
+---
+- block:
+    - package:
+        name:
+          - nvidia
+          - nvidia-settings
+
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+  tags: [x, nvidia]
