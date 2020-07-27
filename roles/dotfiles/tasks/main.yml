@@ -29,4 +29,12 @@
         chdir: ~/dotfiles
         cmd: stow -t ~ homedir
 
+    - command:
+        chdir: ~/dotfiles
+        cmd: sudo stow -t / nvidia
+
+    - command:
+        chdir: ~/dotfiles
+        cmd: sudo stow -t / ice1712
+
   tags: [dotfiles]
