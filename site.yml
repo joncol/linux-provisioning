@@ -9,12 +9,14 @@
     - basic_setup
     - yay
     - git_config
+    - pulseaudio
     - dotfiles
     - aws_config
     - neovim
     - zsh
     - tmux
     - asdf
+    - syncthing
     - x
     - xmonad
     - emacs

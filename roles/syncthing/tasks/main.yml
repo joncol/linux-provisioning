@@ -1,0 +1,9 @@
+---
+- package: name=syncthing
+  become: yes
+
+- systemd:
+    name: syncthing
+    scope: user
+    enabled: yes
+    state: started

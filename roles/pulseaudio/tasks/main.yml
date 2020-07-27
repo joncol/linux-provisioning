@@ -1,0 +1,16 @@
+---
+- block:
+    - package:
+        name:
+          - pulseaudio
+          - pavucontrol
+          - alsa-utils
+      become: yes
+
+    - systemd:
+        name: pulseaudio
+        scope: user
+        enabled: yes
+        state: started
+
+  tags: audio
