@@ -38,3 +38,5 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   become: yes
   tags: emacs, x
+
+- pip: name=certifi
