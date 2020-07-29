@@ -3,6 +3,7 @@
     - package:
         name:
           - feh
+          - gnome-keyring
           - lightdm
           - lightdm-gtk-greeter
           - redshift
@@ -14,6 +15,7 @@
 
     - package:
         name:
+          - libsecret
           - slock
           - xf86-input-wacom
           - xorg-server
@@ -25,6 +27,7 @@
 
     - package:
         name:
+          - libsecret-1-0
           - libwacom-bin
           - libx11-dev
           - libxinerama-dev
