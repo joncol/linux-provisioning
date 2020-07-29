@@ -6,6 +6,7 @@
           - gnome-keyring
           - lightdm
           - lightdm-gtk-greeter
+          - maim
           - redshift
           - unclutter
           - xclip
