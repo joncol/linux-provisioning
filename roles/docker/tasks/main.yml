@@ -1,0 +1,57 @@
+---
+- name: install docker and docker-compose on Arch Linux
+  block:
+    - package:
+        name:
+          - docker
+          - docker-compose
+      become: yes
+
+  when: ansible_distribution == 'Archlinux'
+  tags: docker
+
+- name: install docker and docker-compose on Debian/Ubuntu
+  block:
+    - apt_key: url=https://download.docker.com/linux/debian/gpg
+      become: yes
+
+    - shell: lsb_release -cs
+      changed_when: False
+      register: lsb_release
+
+    - apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ lsb_release.stdout }} stable
+      become: yes
+
+    - apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        update_cache: yes
+      become: yes
+
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: docker
+
+- user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  become: yes
+  tags: docker
+
+# - systemd:
+#     name: docker
+#     enabled: yes
+#     state: started
+#     scope: user
+#   when: ansible_distribution == 'Archlinux'
+#   tags: docker
+
+- name: reset SSH connection to allow user changes to take effect
+  meta: reset_connection
+  tags: docker
+
+- meta: flush_handlers
+  tags: docker

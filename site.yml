@@ -17,6 +17,7 @@
     - tmux
     - asdf
     - syncthing
+    - docker
     - x
     - xmonad
     - nvidia
