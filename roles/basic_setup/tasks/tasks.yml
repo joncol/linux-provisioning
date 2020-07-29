@@ -10,6 +10,7 @@
       - git
       - htop
       - hub
+      - irssi
       - jq
       - lastpass-cli
       - mercurial
