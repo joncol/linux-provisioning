@@ -22,6 +22,10 @@
         state: directory
 
     - file:
+        path: ~/.local/bin
+        state: directory
+
+    - file:
         path: ~/.xmonad
         state: directory
 
