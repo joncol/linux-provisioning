@@ -1,0 +1,7 @@
+---
+- package: name=gimp
+  become: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- aur: name=gimp
+  when: ansible_distribution == 'Archlinux'

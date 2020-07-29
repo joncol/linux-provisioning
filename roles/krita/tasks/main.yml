@@ -1,0 +1,3 @@
+---
+- package: name=krita
+  become: yes
