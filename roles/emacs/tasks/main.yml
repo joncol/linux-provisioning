@@ -11,6 +11,7 @@
           - libgnutls28-dev
           - libgtk-3-dev
           - libjpeg-dev
+          - libncurses-dev
           - libtiff-dev
           - libxpm-dev
 
