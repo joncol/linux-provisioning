@@ -4,6 +4,8 @@
       - autoconf
       - binutils
       - curl
+      - dhall
+      - dhall-json
       - fakeroot
       - git
       - htop
@@ -54,6 +56,7 @@
         name:
           - direnv
           - git-delta
+          - sops
       become: no
 
     - name: update pkgfile database
@@ -74,6 +77,9 @@
 
     - apt:
         deb: https://github.com/dandavison/delta/releases/download/0.3.0/git-delta_0.3.0_amd64.deb
+
+    - apt:
+        deb: https://github.com/mozilla/sops/releases/download/v3.6.0/sops_3.6.0_amd64.deb
 
     - pip: name=awscli
       become: no
