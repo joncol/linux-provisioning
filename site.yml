@@ -18,6 +18,7 @@
     - asdf
     - syncthing
     - docker
+    - zerotier
     - x
     - xmonad
     - nvidia

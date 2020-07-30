@@ -1,0 +1,54 @@
+---
+- name: install ZeroTier on Debian/Ubuntu
+  block:
+    - get_url:
+        url: https://install.zerotier.com
+        dest: '/tmp/zerotier'
+        mode: 0755
+
+    - shell: '/tmp/zerotier'
+      become: yes
+      changed_when: False
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags: zerotier
+
+- name: install ZeroTier on Arch Linux
+  block:
+    - package: name=zerotier-one
+      become: yes
+
+    - systemd:
+        name: zerotier-one
+        enabled: yes
+        state: started
+      become: yes
+
+    - systemd:
+        name: avahi-daemon
+        enabled: yes
+        state: started
+      become: yes
+
+  when: ansible_distribution == 'Archlinux'
+  tags: zerotier
+
+- name: join Zimpler ZeroTier network
+  block:
+    - shell: zerotier-cli join e4da7455b22e540e
+      become: yes
+
+    - shell: zerotier-cli info | cut -d ' ' -f3
+      become: yes
+      changed_when: False
+      register: zerotier_info
+
+    - uri:
+        method: POST
+        url: https://my.zerotier.com/api/network/e4da7455b22e540e/member/{{zerotier_info.stdout}}
+        body_format: json
+        headers:
+          Authorization: "bearer {{ auth_token }}"
+        body: '{"config": {"authorized": true},
+                "description": "Automated join",
+                "name": "{{ ansible_hostname }}"}'
+  tags: zerotier
