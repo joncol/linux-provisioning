@@ -26,6 +26,7 @@
           - xorg-server
           - xorg-xdpyinfo
           - xorg-xinput
+          - xorg-xmessage
           - xorg-xrdb
       when: ansible_distribution == 'Archlinux'
       become: yes
