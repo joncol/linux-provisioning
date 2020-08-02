@@ -15,6 +15,7 @@
     - neovim
     - zsh
     - tmux
+    - mu
     - asdf
     - syncthing
     - docker

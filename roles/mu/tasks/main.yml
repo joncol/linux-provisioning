@@ -1,0 +1,19 @@
+---
+- name: install mu and dependencies on Arch Linux
+  block:
+    - aur: name=mu,imapfilter
+
+    - package: name=isync,w3m
+      become: yes
+
+    - copy:
+        src: passwd/
+        dest: ~/.passwd/
+        mode: 0600
+
+    - shell: |
+        mu init -m ~/.mail \
+            --my-address=jonas.collberg@gmail.com \
+            --my-address=jonas.collberg@zimpler.com
+
+  when: ansible_distribution == 'Archlinux'
