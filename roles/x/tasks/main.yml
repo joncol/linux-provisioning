@@ -19,6 +19,8 @@
 
     - package:
         name:
+          - arc-gtk-theme
+          - faba-icon-theme
           - libnotify
           - libsecret
           - slock
