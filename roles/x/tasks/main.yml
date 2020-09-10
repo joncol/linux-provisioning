@@ -21,6 +21,7 @@
         name:
           - arc-gtk-theme
           - faba-icon-theme
+          - gvfs
           - libnotify
           - libsecret
           - slock
