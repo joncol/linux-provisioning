@@ -14,7 +14,16 @@
 
 - name: install ZeroTier on Arch Linux
   block:
-    - package: name=zerotier-one
+    - package:
+        name:
+          - zerotier-one
+          - nss-mdns
+      become: yes
+
+    - lineinfile:
+        path: /etc/nsswitch.conf
+        regexp: '^hosts:'
+        line: 'hosts: files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns'
       become: yes
 
     - systemd:
