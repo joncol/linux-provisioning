@@ -19,6 +19,7 @@
       - postgresql
       - python-pip
       - ripgrep
+      - rsync
       - stow
       - texinfo
       - tig
