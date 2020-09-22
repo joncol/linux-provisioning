@@ -1,5 +1,11 @@
 ---
-- package: name=alacritty
-  become: yes
+- name: install alacritty
+  block:
+    - package: name=alacritty
+      become: yes
+    - pip:
+        name: alacritty-colorscheme
+        extra_args: --user
+
   when: ansible_distribution == 'Archlinux'
   tags: x
