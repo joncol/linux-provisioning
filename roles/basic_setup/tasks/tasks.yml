@@ -4,6 +4,7 @@
       - autoconf
       - binutils
       - curl
+      - cmake
       - dhall
       - dhall-json
       - fakeroot
