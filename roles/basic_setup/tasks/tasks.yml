@@ -21,6 +21,7 @@
       - python-pip
       - ripgrep
       - rsync
+      - sdcv
       - stow
       - texinfo
       - tig
