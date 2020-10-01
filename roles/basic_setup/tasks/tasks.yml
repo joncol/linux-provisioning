@@ -47,6 +47,7 @@
           - aws-cli
           - base-devel
           - bat
+          - bind
           - inetutils
           - man-db
           - man-pages
@@ -75,6 +76,7 @@
         name:
           - build-essential
           - direnv
+          - dnsutils
           - fd-find
           - hostname
           - postgresql-client
