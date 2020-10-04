@@ -9,6 +9,7 @@
       - dhall-json
       - fakeroot
       - git
+      - gnuplot
       - htop
       - httpie
       - hub
