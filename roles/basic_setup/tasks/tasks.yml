@@ -1,6 +1,7 @@
 ---
 - package:
     name:
+      - at
       - autoconf
       - binutils
       - curl
