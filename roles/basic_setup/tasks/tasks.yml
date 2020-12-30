@@ -52,6 +52,7 @@
           - base-devel
           - bat
           - bind
+          - hunspell-en_US
           - inetutils
           - man-db
           - man-pages
@@ -83,6 +84,7 @@
           - dnsutils
           - fd-find
           - hostname
+          - hunspell-en-us
           - postgresql-client
           - silversearcher-ag
 
