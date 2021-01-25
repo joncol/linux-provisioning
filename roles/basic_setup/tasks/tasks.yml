@@ -19,6 +19,7 @@
       - irssi
       - jq
       - lastpass-cli
+      - lsof
       - mercurial
       - ncdu
       - postgresql
