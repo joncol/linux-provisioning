@@ -6,13 +6,10 @@
       - binutils
       - curl
       - cmake
-      - dhall
-      - dhall-json
       - discount
       - exa
       - fakeroot
       - git
-      - gnuplot
       - htop
       - httpie
       - hub
@@ -67,7 +64,6 @@
     - aur:
         name:
           - direnv
-          - git-delta
           - sops
       become: no
 
@@ -88,9 +84,6 @@
           - hunspell-en-us
           - postgresql-client
           - silversearcher-ag
-
-    - apt:
-        deb: https://github.com/dandavison/delta/releases/download/0.3.0/git-delta_0.3.0_amd64.deb
 
     - apt:
         deb: https://github.com/mozilla/sops/releases/download/v3.6.0/sops_3.6.0_amd64.deb
