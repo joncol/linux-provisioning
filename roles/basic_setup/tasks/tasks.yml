@@ -14,7 +14,6 @@
       - httpie
       - hub
       - irssi
-      - jq
       - lastpass-cli
       - lsof
       - mercurial
