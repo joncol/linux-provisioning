@@ -1,5 +1,8 @@
 ---
-- copy:
-    src: dot_gitconfig
-    dest: ~/.gitconfig
-    mode: 0600
+- name: copy .gitconfig
+  block:
+    - copy:
+        src: dot_gitconfig
+        dest: ~/.gitconfig
+        mode: 0600
+  tags: gitconfig
