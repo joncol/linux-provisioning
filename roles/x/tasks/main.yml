@@ -55,9 +55,8 @@
 
     - copy:
         src: x-init-kb.sh
-        dest: /usr/local/bin/
+        dest: ~/.local/bin/
         mode: preserve
-      become: yes
 
     - lineinfile:
         path: /etc/lightdm/lightdm.conf
