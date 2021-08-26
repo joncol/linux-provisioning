@@ -18,11 +18,19 @@
         state: directory
 
     - file:
+        path: ~/.config/emacs
+        state: directory
+
+    - file:
         path: ~/.config/tmux
         state: directory
 
     - file:
         path: ~/.local/bin
+        state: directory
+
+    - file:
+        path: ~/.local/share/applications
         state: directory
 
     - file:
@@ -32,10 +40,6 @@
     - command:
         chdir: ~/dotfiles
         cmd: stow -t ~ homedir
-
-    - command:
-        chdir: ~/dotfiles
-        cmd: sudo stow -t / nvidia
 
     # - command:
     #     chdir: ~/dotfiles
