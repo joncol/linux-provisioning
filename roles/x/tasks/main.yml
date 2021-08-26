@@ -5,8 +5,6 @@
           - dunst
           - feh
           - gnome-keyring
-          - lightdm
-          - lightdm-gtk-greeter
           - maim
           - redshift
           - screenkey
@@ -57,12 +55,6 @@
         src: x-init-kb.sh
         dest: ~/.local/bin/
         mode: preserve
-
-    - lineinfile:
-        path: /etc/lightdm/lightdm.conf
-        regexp: '^#display-setup-script='
-        line: 'display-setup-script=/usr/local/bin/x-init-kb.sh'
-      become: yes
 
     - name: build dmenu2 from source
       block:
