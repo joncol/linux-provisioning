@@ -18,7 +18,6 @@
     - package:
         name:
           - arc-gtk-theme
-          - faba-icon-theme
           - gvfs
           - libnotify
           - libsecret
@@ -80,6 +79,7 @@
         name:
           - dmenu2
           - picom-tryone-git
+          - faba-icon-theme
       when: ansible_distribution == 'Archlinux'
 
   tags: x
