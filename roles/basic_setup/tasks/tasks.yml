@@ -63,7 +63,6 @@
     - aur:
         name:
           - direnv
-          - sops
       become: no
 
     - name: update pkgfile database
