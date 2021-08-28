@@ -50,11 +50,6 @@
         enabled: yes
       become: yes
 
-    - copy:
-        src: x-init-kb.sh
-        dest: ~/.local/bin/
-        mode: preserve
-
     - name: build dmenu2 from source
       block:
         - file:
