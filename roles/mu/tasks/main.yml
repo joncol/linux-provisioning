@@ -12,7 +12,7 @@
         mode: 0600
 
     - shell: |
-        mu init -m ~/.mail --my-address=jonas.collberg@gmail.com
+        mu init -m ~/.mail --my-address=jonas.collberg@gmail.com --my-address=jonas.collberg@scrive.com
 
   when: ansible_distribution == 'Archlinux'
   tags: mu
