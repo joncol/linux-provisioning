@@ -1,7 +1,7 @@
 ---
 - name: install mu and dependencies on Arch Linux
   block:
-    - aur: name=mu,imapfilter
+    - kewlfft.aur.aur: name=mu,imapfilter
 
     - package: name=isync,w3m
       become: yes

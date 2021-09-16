@@ -11,7 +11,6 @@
       - fakeroot
       - git
       - htop
-      - httpie
       - hub
       - irssi
       - lastpass-cli
@@ -60,7 +59,7 @@
           - the_silver_searcher
           - wget
 
-    - aur:
+    - kewlfft.aur.aur:
         name:
           - direnv
       become: no

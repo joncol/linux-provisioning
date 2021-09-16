@@ -13,5 +13,5 @@
   become: yes
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- aur: {name: antigen}
+- kewlfft.aur.aur: {name: antigen}
   when: ansible_distribution == 'Archlinux'

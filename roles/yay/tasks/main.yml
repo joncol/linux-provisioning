@@ -1,4 +1,4 @@
 ---
 - name: install yay (AUR helper)
-  aur: name=yay
+  kewlfft.aur.aur: name=yay
   when: ansible_distribution == 'Archlinux'

@@ -3,5 +3,5 @@
   become: yes
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- aur: name=gimp
+- kewlfft.aur.aur: name=gimp
   when: ansible_distribution == 'Archlinux'

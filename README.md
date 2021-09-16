@@ -4,20 +4,14 @@ Simple installation of new machines.
 
 ## Prerequisites
 
-To decrypt the ansible vault, `direnv` is needed. Also, you need the `lpass-cli`
-package.
+To decrypt the ansible vault, you need the `lastpass-cli`
+package. To use the `justfile`, the package `just` is needed.
 
 ## Running
 
-The provisioning can be run by either pulling:
+The provisioning can be run for the local machine by:
 
 ```bash
-ansible-pull -KU https://github.com/joncol/linux-provisioning.git
-```
-
-Or by pushing:
-
-```bash
-just setup-box USERNAME IP [PORT]
+just setup-local
 just provision
 ```

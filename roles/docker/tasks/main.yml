@@ -41,13 +41,13 @@
   become: yes
   tags: docker
 
-# - systemd:
-#     name: docker
-#     enabled: yes
-#     state: started
-#     scope: user
-#   when: ansible_distribution == 'Archlinux'
-#   tags: docker
+- systemd:
+    name: docker
+    enabled: yes
+    state: started
+  become: yes
+  when: ansible_distribution == 'Archlinux'
+  tags: docker
 
 - name: reset SSH connection to allow user changes to take effect
   meta: reset_connection

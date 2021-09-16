@@ -1,16 +1,26 @@
-- name: install colemak keymap
-  copy:
-    src: "{{ item }}"
-    dest: "{{ maps_dir }}"
-  with_fileglob: "maps/*"
-  become: yes
+- name: set up colemak keyboard layout
+  block:
+    - name: install colemak keymap
+      copy:
+        src: "{{ item }}"
+        dest: "{{ maps_dir }}"
+      with_fileglob: "maps/*"
+      become: yes
 
-- copy:
-    src: keyboard
-    dest: /etc/default/
-  become: yes
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - copy:
+        src: keyboard
+        dest: /etc/default/
+      become: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: set active keymap
-  command: loadkeys {{ maps_dir }}/colemak.map
-  become: yes
+    - copy:
+        src: vconsole.conf
+        dest: /etc/
+      become: yes
+      when: ansible_distribution == 'Archlinux'
+
+    - name: set active keymap
+      command: loadkeys {{ maps_dir }}/colemak.map
+      become: yes
+
+  tags: colemak

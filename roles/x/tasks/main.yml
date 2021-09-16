@@ -25,6 +25,7 @@
           - xf86-input-wacom
           - xorg-server
           - xorg-xdpyinfo
+          - xorg-xinit
           - xorg-xinput
           - xorg-xmessage
           - xorg-xrdb
@@ -43,11 +44,6 @@
           - suckless-tools
           - x11-xserver-utils
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      become: yes
-
-    - systemd:
-        name: lightdm
-        enabled: yes
       become: yes
 
     - name: build dmenu2 from source
@@ -70,7 +66,7 @@
       become: yes
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - aur:
+    - kewlfft.aur.aur:
         name:
           - dmenu2
           - picom-tryone-git

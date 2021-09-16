@@ -1,5 +1,5 @@
 ---
-- aur: name=google-chrome
+- kewlfft.aur.aur: name=google-chrome
   tags: [x, x_apps]
   when: ansible_distribution == 'Archlinux'
 

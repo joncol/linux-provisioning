@@ -7,12 +7,12 @@
       become: yes
       when: ansible_distribution == 'Archlinux'
 
-    - aur:
+    - kewlfft.aur.aur:
         name:
           - montserrat-font-ttf
           - ttf-iosevka
           - ttf-ms-fonts
-          - ttf-vista-fonts
+          - ttf-windows
       when: ansible_distribution == 'Archlinux'
 
     - package: {name: fonts-firacode}
