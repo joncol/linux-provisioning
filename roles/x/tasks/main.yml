@@ -29,6 +29,7 @@
           - xorg-xinput
           - xorg-xmessage
           - xorg-xrdb
+          - xorg-xsetroot
       when: ansible_distribution == 'Archlinux'
       become: yes
 
