@@ -44,7 +44,7 @@
   block:
     - package:
         name:
-          - aws-cli
+          - aws-cli-v2-bin
           - base-devel
           - bat
           - bind
