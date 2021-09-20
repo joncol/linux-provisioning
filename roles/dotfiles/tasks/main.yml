@@ -10,6 +10,10 @@
         state: directory
 
     - file:
+        path: ~/.cabal
+        state: directory
+
+    - file:
         path: ~/.config
         state: directory
 
@@ -19,6 +23,10 @@
 
     - file:
         path: ~/.config/emacs
+        state: directory
+
+    - file:
+        path: ~/.config/nix
         state: directory
 
     - file:
@@ -40,9 +48,5 @@
     - command:
         chdir: ~/dotfiles
         cmd: stow -t ~ homedir
-
-    # - command:
-    #     chdir: ~/dotfiles
-    #     cmd: sudo stow -t / ice1712
 
   tags: [dotfiles]
