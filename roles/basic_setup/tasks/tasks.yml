@@ -44,7 +44,6 @@
   block:
     - package:
         name:
-          - aws-cli-v2-bin
           - base-devel
           - bat
           - bind
@@ -61,7 +60,7 @@
 
     - kewlfft.aur.aur:
         name:
-          - direnv
+          - aws-cli-v2-bin
       become: no
 
     - name: update pkgfile database
