@@ -2,6 +2,7 @@
 - block:
     - package:
         name:
+          - noto-fonts-emoji
           - ttf-fira-code
           - ttf-liberation
       become: yes
