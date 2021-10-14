@@ -12,9 +12,11 @@
     regexp: '^# %wheel'
     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
     # validate: "visudo -cf %s"
-- name: add user to `wheel` group
+- name: add user to groups
   user:
     name: "{{ ansible_user_id }}"
-    groups: wheel
+    groups:
+      - video
+      - wheel
     append: yes
     state: present

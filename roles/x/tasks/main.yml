@@ -18,6 +18,7 @@
     - package:
         name:
           - arc-gtk-theme
+          - brightnessctl
           - gvfs
           - libnotify
           - libsecret
@@ -72,6 +73,13 @@
           - dmenu2
           - picom-tryone-git
           - faba-icon-theme
+      when: ansible_distribution == 'Archlinux'
+
+    - name: make users in the `video` group able to adjust the monitor brightness
+      copy:
+        src: backlight.rules
+        dest: /etc/udev/rules.d/
+      become: yes
       when: ansible_distribution == 'Archlinux'
 
   tags: x
