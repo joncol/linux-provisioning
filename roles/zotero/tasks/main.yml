@@ -1,0 +1,13 @@
+---
+- name: install Zotero
+  block:
+    - file:
+        path: ~/Zotero
+        src: ~/Sync/Zotero
+        state: link
+    - kewlfft.aur.aur:
+        name:
+          - zotero
+      when: ansible_distribution == 'Archlinux'
+
+  tags: zotero
